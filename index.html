@@ -8,38 +8,49 @@
 </head>
 <body>
     <div class="hotel">
-      <h1>Добавление отеля</h1>
-      <form class="hotel-form" id="hotelForm">
-          <label for="hotelName">Название отеля:</label>
-          <input type="text" id="hotelName" maxlength="150" required>
-          <label for="hotelRegion">Регион:</label>
-          <input id="hotelRegion" required>
-              <!-- Здесь должен быть список регионов -->
+        <h1>Добавление отеля</h1>
+        <form class="hotel-form" id="hotelForm">
+            <label for="hotelName">Название отеля:</label>
+            <input type="text" id="hotelName" maxlength="150" name="hotelName" required>
+            <label for="hotelRegion">Регион:</label>
+            <select id="regionSelect" name="region"></select>
+            <button id = "addHotel" type="submit">Добавить отель</button>
+        </form>
+      </div>
+      <div class="room">
+        <h1>Добавление номера</h1>
+        <form class="room-form" id="roomForm">
+          <label for="hotelSelect">Отель:</label>
+          <input type="text" id="hotelSelect" maxlength="150" name="hotelName" required>
+          <label for="roomNumber">Номер:</label>
+          <input type="text" id="roomNumber" maxlength="10" name="roomNumber" required>
+          <label for="roomCategory" >Категория:</label>
+          <select id="roomCategory" name="category" required>
+              <option value="Стандарт">Стандарт</option>
+              <option value="Люкс">Люкс</option>
+              <option value="Апартаменты">Апартаменты</option>
           </select>
-          <button type="submit">Добавить отель</button>
+          <label for="numberOfSeats" >Количество мест:</label>
+          <select id="numberOfSeats" name="numberOfSeats" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+          </select>
+          <label for="status" >Статус:</label>
+          <select id="status" name="status" class="avaible">
+                <option value="Свободен" class="avaible">Свободен</option>
+                <option value="Занят" class="notAvaible">Занят</option>
+          </select>
+          <button type="submit">Добавить номер</button>
       </form>
-    </div>
-    <div class="room">
-      <h1>Добавление номера</h1>
-      <form class="room-form" id="roomForm">
-        <label for="hotelSelect">Отель:</label>
-        <select id="hotelSelect" required>
-            <!-- Здесь должны быть отели для выбора -->
-        </select>
-        <label for="roomNumber">Номер:</label>
-        <input type="text" id="roomNumber" maxlength="10" required>
-        <label for="roomCategory">Категория:</label>
-        <select id="roomCategory" required>
-            <option value="Стандарт">Стандарт</option>
-            <option value="Люкс">Люкс</option>
-            <option value="Апартаменты">Апартаменты</option>
-        </select>
-        <button type="submit">Добавить номер</button>
-    </form>
-    </div>
-      <div class="hotel-list" id="hotelList">
-        <h2>Список отелей и номеров</h2>
-        <!--Здесь должны быть отели -->
-    </div>
+      </div>
+      <div class="avaibleRooms">
+          <p>Какие номера свободны на определенный промежуток дат?</p>
+          <form class="avaibleRoomsForm">
+            <label for="checkHotelName">Название отеля</label>
+            <input type="text" id="checkHotelName" maxlength="150" name="checkHotelName">
+          </form>
+          <ul id="avaible"></ul>
+      </div> 
+    <script src="src/index.js" type="module"></script>
 </body>
 </html>
