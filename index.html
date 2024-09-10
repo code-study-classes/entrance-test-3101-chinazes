@@ -1,24 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <title>Управление отелями</title>
 </head>
-<body><form action="#" method="post" target="_blank">
-    <h2>Hotels</h2>
-    <fieldset>
-      <ul>
-        <li>
-          <label for="name">Hotel Name</label>
-          <input type="text" name="name" id="name" required>
-        </li>
-        <li>
-          <label for="age">Region</label>
-          <input type="" name="age" id="age" min="0" max="125">
-        </li>
-      </ul>
-    </fieldset>      
-  </form>
+<body>
+    <div class="hotel">
+      <h1>Добавление отеля</h1>
+      <form class="hotel-form" id="hotelForm">
+          <label for="hotelName">Название отеля:</label>
+          <input type="text" id="hotelName" maxlength="150" required>
+          <label for="hotelRegion">Регион:</label>
+          <input id="hotelRegion" required>
+              <!-- Здесь должен быть список регионов -->
+          </select>
+          <button type="submit">Добавить отель</button>
+      </form>
+    </div>
+    <div class="room">
+      <h1>Добавление номера</h1>
+      <form class="room-form" id="roomForm">
+        <label for="hotelSelect">Отель:</label>
+        <select id="hotelSelect" required>
+            <!-- Здесь должны быть отели для выбора -->
+        </select>
+        <label for="roomNumber">Номер:</label>
+        <input type="text" id="roomNumber" maxlength="10" required>
+        <label for="roomCategory">Категория:</label>
+        <select id="roomCategory" required>
+            <option value="Стандарт">Стандарт</option>
+            <option value="Люкс">Люкс</option>
+            <option value="Апартаменты">Апартаменты</option>
+        </select>
+        <button type="submit">Добавить номер</button>
+    </form>
+    </div>
+      <div class="hotel-list" id="hotelList">
+        <h2>Список отелей и номеров</h2>
+        <!--Здесь должны быть отели -->
+    </div>
 </body>
 </html>
