@@ -13,19 +13,17 @@
             <label for="hotelName">Название отеля:</label>
             <input type="text" id="hotelName" maxlength="150" name="hotelName" required>
             <label for="hotelRegion">Регион:</label>
-            <select id="regionSelect" name="region"></select>
+            <select id="regionSelect" name="region" required></select>
             <button id = "addHotel" type="submit">Добавить отель</button>
         </form>
       </div>
       <div class="room">
         <h1>Добавление номера</h1>
         <form class="room-form" id="roomForm">
-          <label for="hotelSelect">Отель:</label>
-          <input type="text" id="hotelSelect" maxlength="150" name="hotelName" required>
           <label for="roomNumber">Номер:</label>
           <input type="text" id="roomNumber" maxlength="10" name="roomNumber" required>
-          <label for="roomCategory" >Категория:</label>
-          <select id="roomCategory" name="category" required>
+          <label for="category" >Категория:</label>
+          <select id="category" name="category" required>
               <option value="Стандарт">Стандарт</option>
               <option value="Люкс">Люкс</option>
               <option value="Апартаменты">Апартаменты</option>
@@ -40,14 +38,17 @@
                 <option value="Свободен" class="avaible">Свободен</option>
                 <option value="Занят" class="notAvaible">Занят</option>
           </select>
+          <label for="hotelSelect">Отель:</label>
+          <select id="hotelSelect" maxlength="150" name="hotelSelect" required></select>
           <button type="submit">Добавить номер</button>
       </form>
       </div>
       <div class="avaibleRooms">
-          <p>Какие номера свободны на определенный промежуток дат?</p>
+          <p>Какие номера свободны?</p>
           <form class="avaibleRoomsForm">
             <label for="checkHotelName">Название отеля</label>
-            <input type="text" id="checkHotelName" maxlength="150" name="checkHotelName">
+            <select id="checkHotelName" maxlength="150" name="checkHotelName"></select>
+            <button type="submit">Найти номера</button>
           </form>
           <ul id="avaible"></ul>
       </div> 
