@@ -139,6 +139,11 @@ th {
     width: auto;
 
 }
+
+.avaibleListEl {
+    margin-bottom: 10px;
+}
+
 .another {
     margin-top: 5px;
 }
