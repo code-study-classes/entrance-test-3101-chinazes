@@ -16,23 +16,24 @@ export default () => {
     const value = formData.get(input).trim();
 
     if (input === 'hotelName') {
-      state.hotels[value] = { region: '' };
+      state.currentHotelName = value;
     }
-    else {
-      const stateWithoutRegion = (Object.entries(state.hotels).find(([, value]) => value.region === ''));
-      const actualHotelName = stateWithoutRegion[0];
-      state.hotels[actualHotelName].region = value;
+    if (input === 'region') {
+      state.currentRegion = value;
     }
   });
   
   elements.hotelForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // localStorage.setItem(hotelState.hotelName, JSON.stringify(hotelState));
     elements.hotelName.value = '';
+
+    state.hotels[state.currentHotelName] = { region: ''};
+
     const stateWithoutRegion = (Object.entries(state.hotels).find(([, value]) => value.region === ''));
-    if (stateWithoutRegion) {
-      const actualHotelName = stateWithoutRegion[0];
+    const actualHotelName = stateWithoutRegion[0];
+    state.hotels[actualHotelName].region = state.currentRegion;
+    if (state.currentRegion === '') {
       state.hotels[actualHotelName].region = elements.regionSelect.value;
     }
 
