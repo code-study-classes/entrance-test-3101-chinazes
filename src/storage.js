@@ -19,5 +19,7 @@ export const state = {
   hotels: {},
   rooms: {},
   currentRoom: '',
+  currentHotelName: '',
+  currentRegion: '',
   hotelNameToCheck: '',
 };

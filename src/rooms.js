@@ -99,7 +99,12 @@ export default () => {
   
     elements.hotelSelect.value = '';
     elements.roomNumber.value = '';
-    
+    elements.category.value = 'Стандарт',
+    elements.numberOfSeats.value = '1',
+    elements.status.value = 'Свободен';
+    elements.status.classList.add('avaible');
+    elements.status.classList.remove('notAvaible');
+  
     console.log(state)
   });
 };
