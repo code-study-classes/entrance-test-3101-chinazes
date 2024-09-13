@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+ 
 export const elements = {
   regionSelect: document.getElementById('regionSelect'),
   hotelButton: document.getElementById('addHotel'),

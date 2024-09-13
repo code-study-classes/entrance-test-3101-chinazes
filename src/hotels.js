@@ -1,7 +1,8 @@
 import { regions } from '../regions.js';
 import { elements, state } from './storage.js';
-import addRoom, { checkHotelNames } from './rooms.js';
+import { checkHotelNames } from './rooms.js';
 import { checkHotels } from './avaibleRooms.js';
+
 export default () => {
   regions.forEach(region => {
     const option = document.createElement('option');

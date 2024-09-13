@@ -22,24 +22,19 @@ export default () => {
   });
   
   const displayObjectContent = (obj, parent) => {
-    for (const key in obj) {
-        if (obj.hasOwnProperty(key)) {
-            const value = obj[key];
-            const element = document.createElement('div');
-            
-            if (typeof value === 'object' && value !== null) {
-                const subElement = document.createElement('div');
-                subElement.style.marginLeft = '20px';
-                element.textContent = `${key}:`;
-                displayObjectContent(value, subElement);
-                element.appendChild(subElement);
-            } else {
-                element.textContent = `${key}: ${value}`;
-            }
-
-            parent.appendChild(element);
-        }
-    }
+    Object.entries(obj).forEach(([key, value]) => {
+      const keys = {
+        'hotelSelect': 'Имя отеля',
+        'category': 'Категория',
+        'numberOfSeats': 'Количество номеров',
+        'status': 'Статус',
+        'region': 'Регион',
+      };
+      const keyNameForDisplay = keys[key];
+      const element = document.createElement('div');
+      element.textContent = `${keyNameForDisplay}: ${value}`;
+      parent.appendChild(element);
+    });
   };
 
   const addAvaibleRoomsToUlList = (list) => {
@@ -52,9 +47,10 @@ export default () => {
       const region = currentHotelState[1].region;
       roomState.region = region;
 
-      const liEl = document.createElement('li');
       const contentDiv = document.createElement('div');
       displayObjectContent(roomState, contentDiv);
+
+      const liEl = document.createElement('li');
       liEl.textContent = room;
       liEl.classList.add('avaibleListEl');
       liEl.append(contentDiv);
